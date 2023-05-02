@@ -17,6 +17,7 @@ app.use(cors({
     credentials: true,
     origin: "https://marathi-precautions.000webhostapp.com",
     methods: "*",
+    headers: "*"
 }))
 const port = process.env.PORT || 5000
 
@@ -27,6 +28,7 @@ const io = new Server(server, {
         origin: "https://marathi-precautions.000webhostapp.com",
         transports: ['websocket', 'polling'],
         methods: ["GET", "POST"],
+        headers: "*"
     },
     allowEIO3: true
 })
