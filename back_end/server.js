@@ -6,7 +6,7 @@ const { Server } = require('socket.io')
 const cors = require('cors')
 
 const pool  = mysql.createPool({
-    host            : 'https://databases.000webhost.com/',
+    host            : 'https://databases.000webhost.com',
     user            : 'id20690556_salon_admin',
     password        : '8NU)}Fp4U^O(YDmI',
     database        : 'id20690556_salon_shop'
