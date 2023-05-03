@@ -6,17 +6,17 @@ const { Server } = require('socket.io')
 const cors = require('cors')
 
 const pool  = mysql.createPool({
-    host            : 'https://databases.000webhost.com',
-    user            : 'id20690556_salon_admin',
-    password        : '8NU)}Fp4U^O(YDmI',
-    database        : 'id20690556_salon_shop'
+    host            : 'localhost',
+    user            : 'root',
+    password        : '',
+    database        : 'salon_shop'
 })
 
 const app = express()
 app.use(cors({
     credentials: true,
-    origin: "https://marathi-precautions.000webhostapp.com",
-    methods: "*"
+    origin: "http://localhost:3000",
+    methods: "*",
 }))
 const port = process.env.PORT || 5000
 
@@ -24,9 +24,9 @@ const server = http.createServer(app)
 const io = new Server(server, {
     cors:{
         credentials: true,
-        origin: "https://marathi-precautions.000webhostapp.com",
+        origin: "http://localhost:3000",
         transports: ['websocket', 'polling'],
-        methods: ["GET", "POST"]
+        methods: ["GET", "POST"],
     },
     allowEIO3: true
 })
@@ -161,12 +161,6 @@ io.on('connection', (socket) => {
     })
     
 }) 
-
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'https://marathi-precautions.000webhostapp.com');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-    next();
-});
 
 // Listen on enviroment port or 5000
 app.listen(port, () => console.log(`APP Listening on port ${port}`))
