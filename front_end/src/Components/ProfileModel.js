@@ -1,9 +1,9 @@
 import './../Style/EditProfile.css';
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import {variables} from "../Variables";
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
-import { Link, useParams, useNavigate } from "react-router-dom";
 
 function AppProfileModel(){
     const [firstname, setFirstname] = useState('');
@@ -12,7 +12,7 @@ function AppProfileModel(){
     const [password, setPassword] = useState('');
     const [phonenumber, setPhonenumber] = useState('');
     const [location_name, setLocation_name] = useState('');
-    const {id} = useParams();
+    const { id } = useParams();
 
     useEffect(() => {
         fetch(variables.API_URL+"get_user/"+id, {
